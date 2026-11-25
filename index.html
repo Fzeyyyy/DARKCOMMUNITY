@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DARK | Gaming Community</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #080d18;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px;
+  background:
+    linear-gradient(rgba(5,12,27,.55), #080d18),
+    url("https://media.forgecdn.net/attachments/675/206/2023-06-10_08.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-content {
+  max-width: 850px;
+  position: relative;
+  z-index: 2;
+  animation: appear 1.2s ease;
+}
+
+.tag {
+  color: #79aaff;
+  letter-spacing: 4px;
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(55px, 10vw, 100px);
+  letter-spacing: 8px;
+  font-weight: 900;
+  text-shadow: 0 0 35px #3678d866;
+}
+
+.hero h1 span {
+  color: #72a8ff;
+}
+
+.hero p {
+  color: #c3cddd;
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 22px auto 30px;
+  max-width: 650px;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 25px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.primary {
+  background: #397de0;
+  color: white;
+}
+
+.secondary {
+  border: 1px solid #779acb;
+  color: white;
+  background: rgba(15,30,55,.6);
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px #3678d844;
+}
+
+/* NAVIGATION */
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+  background: rgba(5,12,25,.35);
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.logo span {
+  color: #72a8ff;
+}
+
+nav a {
+  color: #dce6f8;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 14px;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: #72a8ff;
+}
+
+/* SECTIONS */
+section:not(.hero) {
+  padding: 100px 9%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.section-title span {
+  color: #72a8ff;
+}
+
+.section-desc {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 55px;
+  color: #9caec8;
+  line-height: 1.8;
+}
+
+.about {
+  background: #080d18;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card {
+  padding: 30px;
+  border: 1px solid #1e304d;
+  border-radius: 12px;
+  background: linear-gradient(145deg,#111e34,#0b1220);
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  border-color: #477fc9;
+}
+
+.card .symbol {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  margin-bottom: 13px;
+  color: #8dbaff;
+}
+
+.card p {
+  color: #a9b7cb;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+/* WHY DARK */
+.why {
+  background: #0b1322;
+}
+
+.features {
+  max-width: 800px;
+  margin: auto;
+}
+
+.feature {
+  padding: 22px;
+  margin-bottom: 15px;
+  border-left: 3px solid #477fc9;
+  background: #111d31;
+  border-radius: 5px;
+}
+
+.feature h3 {
+  margin-bottom: 8px;
+  color: #8dbaff;
+}
+
+.feature p {
+  color: #a9b7cb;
+  line-height: 1.7;
+}
+
+/* JOIN */
+.join {
+  text-align: center;
+  background: linear-gradient(180deg,#080d18,#101d34);
+}
+
+.join p {
+  color: #a9b7cb;
+  margin: 20px auto 30px;
+  line-height: 1.8;
+  max-width: 650px;
+}
+
+/* FOOTER */
+footer {
+  padding: 30px 15px;
+  text-align: center;
+  background: #060a12;
+  border-top: 1px solid #1c2a40;
+  color: #73849e;
+  font-size: 13px;
+}
+
+footer strong {
+  color: #8dbaff;
+}
+
+/* PARTICLES */
+.particle {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  background: #8dbaff;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: .5;
+  z-index: 1;
+  animation: float linear infinite;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(105vh);
+    opacity: 0;
+  }
+  20% { opacity: .6; }
+  to {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media(max-width: 750px) {
+  nav {
+    padding: 20px 5%;
+  }
+
+  nav a {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  section:not(.hero) {
+    padding: 75px 7%;
+  }
+
+  .hero {
+    background-attachment: scroll;
+  }
+}
+
+@media(max-width: 420px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav a {
+    margin: 0 7px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">DARK<span>.</span></div>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#why">Why DARK</a>
+    <a href="#join">Join</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<header class="hero" id="home">
+  <div class="hero-content">
+    <div class="tag">GAMING • COMMUNITY • CONNECTION</div>
+
+    <h1>D<span>A</span>RK</h1>
+
+    <p>
+      More than just a gaming community.
+      A place to connect, share experiences,
+      support creators and grow together.
+    </p>
+
+    <div class="buttons">
+      <a class="btn primary"
+         href="https://sites.google.com/view/drkcommunity/form">
+        Join DARK Community
+      </a>
+
+      <a class="btn secondary" href="#about">
+        Explore DARK
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <h2 class="section-title">What is <span>DARK?</span></h2>
+
+  <p class="section-desc">
+    DARK is a gaming community built for gamers,
+    content creators and beginners. We bring people
+    together to communicate, play games, share ideas
+    and support each other's journey.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="symbol">🎮</div>
+      <h3>Gaming Together</h3>
+      <p>
+        Connect with other gamers, discover new games
+        and enjoy gaming experiences together.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="symbol">🌐</div>
+      <h3>Community</h3>
+      <p>
+        Meet new people, share your thoughts,
+        participate in discussions and make connections.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="symbol">🚀</div>
+      <h3>Creator Support</h3>
+      <p>
+        Support content creators and help beginners
+        take their first steps towards their dreams.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY DARK -->
+<section class="why" id="why">
+  <h2 class="section-title">Why <span>DARK?</span></h2>
+
+  <p class="section-desc">
+    Gaming is better when we grow together.
+    DARK aims to create an environment where
+    everyone has an opportunity to connect and contribute.
+  </p>
+
+  <div class="features">
+
+    <div class="feature">
+      <h3>01. A Place to Connect</h3>
+      <p>
+        Meet gamers from different places
+        and build meaningful friendships.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>02. Support Each Other</h3>
+      <p>
+        Share your work, support creators
+        and encourage other community members.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>03. Grow Together</h3>
+      <p>
+        Participate in gaming events,
+        discussions and community activities.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="join" id="join">
+  <h2 class="section-title">
+    Become a <span>Known Dark.</span>
+  </h2>
+
+  <p>
+    Be part of the community, connect with other gamers
+    and contribute to the DARK journey.
+    Your journey starts here.
+  </p>
+
+  <div class="buttons">
+    <a class="btn primary"
+       href="https://sites.google.com/view/drkcommunity/form">
+      Join DARK Community
+    </a>
+
+    <a class="btn secondary"
+       href="https://sites.google.com/view/drkcommunity/administration">
+      Administrative System
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p><strong>DARK COMMUNITY</strong></p>
+  <p>Built for gamers. Connected by community.</p>
+  <p style="margin-top:12px;">© 2026 DARK Community. All rights reserved.</p>
+</footer>
+
+<script>
+// Create floating background particles
+for (let i = 0; i < 35; i++) {
+  const particle = document.createElement("div");
+  particle.className = "particle";
+
+  particle.style.left = Math.random() * 100 + "vw";
+  particle.style.animationDuration =
+    (Math.random() * 12 + 8) + "s";
+  particle.style.animationDelay =
+    (Math.random() * 12) + "s";
+
+  document.body.appendChild(particle);
+}
+</script>
+
+</body>
+</html>
