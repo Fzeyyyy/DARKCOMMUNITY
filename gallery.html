@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DARK | Gallery</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #080d18;
+  color: white;
+}
+
+nav {
+  padding: 22px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0b1424;
+  border-bottom: 1px solid #20334f;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.logo span {
+  color: #72a8ff;
+}
+
+nav a {
+  color: #c4d4eb;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #72a8ff;
+}
+
+.hero {
+  text-align: center;
+  padding: 85px 20px 65px;
+  background:
+    linear-gradient(#08101dcc,#080d18),
+    url("https://media.forgecdn.net/attachments/675/206/2023-06-10_08.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.hero .tag {
+  color: #72a8ff;
+  letter-spacing: 4px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(38px,7vw,65px);
+  margin-bottom: 18px;
+}
+
+.hero h1 span {
+  color: #72a8ff;
+}
+
+.hero p {
+  color: #a9b9d0;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: auto;
+}
+
+main {
+  max-width: 1200px;
+  padding: 65px 25px;
+  margin: auto;
+}
+
+.heading {
+  margin-bottom: 30px;
+}
+
+.heading h2 {
+  font-size: 27px;
+  margin-bottom: 10px;
+}
+
+.heading h2 span {
+  color: #72a8ff;
+}
+
+.heading p {
+  color: #91a2bc;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+
+.photo-card {
+  background: #111d30;
+  border: 1px solid #20334f;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.photo-card:hover {
+  transform: translateY(-6px);
+  border-color: #548bda;
+}
+
+.photo-placeholder {
+  height: 210px;
+  background: linear-gradient(135deg,#172b49,#0c1526);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  color: #8ba8d0;
+}
+
+.photo-placeholder .camera {
+  font-size: 35px;
+}
+
+.photo-placeholder span {
+  font-size: 12px;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+}
+
+.details {
+  padding: 18px;
+}
+
+.details h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.details p {
+  color: #91a2bc;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.category {
+  display: inline-block;
+  color: #8dbaff;
+  background: #1a3152;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin-bottom: 12px;
+}
+
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #8395b0;
+  display: none;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #060a12;
+  border-top: 1px solid #20334f;
+  color: #8395b0;
+  font-size: 13px;
+}
+
+footer strong {
+  color: #8dbaff;
+}
+
+/* IMAGE VIEWER */
+.viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  z-index: 20;
+}
+
+.viewer.active {
+  display: flex;
+}
+
+.viewer img {
+  max-width: 95%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 35px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media(max-width:800px) {
+  .gallery {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media(max-width:550px) {
+  nav {
+    padding: 20px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 70px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">DARK<span>.</span></div>
+  <a href="index.html">← Back to Home</a>
+</nav>
+
+<header class="hero">
+  <div class="tag">MEMORIES • MOMENTS • COMMUNITY</div>
+  <h1>Our <span>Gallery.</span></h1>
+  <p>
+    Every event has a story. Explore the memories,
+    achievements and moments shared by the DARK community.
+  </p>
+</header>
+
+<main>
+
+  <div class="heading">
+    <h2>Community <span>Memories</span></h2>
+    <p>
+      A collection of screenshots from our gaming sessions,
+      community events and special moments.
+    </p>
+  </div>
+
+  <div class="gallery">
+
+    <!-- PHOTO 1 -->
+    <div class="photo-card">
+      <div class="photo-placeholder">
+        <div class="camera">📸</div>
+        <span>Event screenshot coming soon</span>
+      </div>
+      <div class="details">
+        <span class="category">Gaming Event</span>
+        <h3>Community Moments</h3>
+        <p>Memories captured during our gaming sessions.</p>
+      </div>
+    </div>
+
+    <!-- PHOTO 2 -->
+    <div class="photo-card">
+      <div class="photo-placeholder">
+        <div class="camera">📸</div>
+        <span>Event screenshot coming soon</span>
+      </div>
+      <div class="details">
+        <span class="category">Minecraft</span>
+        <h3>Minecraft Adventures</h3>
+        <p>Exploring and building together.</p>
+      </div>
+    </div>
+
+    <!-- PHOTO 3 -->
+    <div class="photo-card">
+      <div class="photo-placeholder">
+        <div class="camera">📸</div>
+        <span>Event screenshot coming soon</span>
+      </div>
+      <div class="details">
+        <span class="category">Community</span>
+        <h3>Special Moments</h3>
+        <p>Some of our favourite community memories.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="empty">
+    No gallery images available yet.
+  </div>
+
+</main>
+
+<footer>
+  <p><strong>DARK COMMUNITY</strong></p>
+  <p style="margin-top:10px;">
+    Built for gamers. Connected by community.
+  </p>
+</footer>
+
+<!-- IMAGE VIEWER -->
+<div class="viewer" id="viewer">
+  <button class="close" onclick="closeViewer()">×</button>
+  <img id="viewerImage" src="" alt="Gallery image">
+</div>
+
+<script>
+document.querySelectorAll(".photo-card img").forEach(img => {
+  img.addEventListener("click", () => {
+    document.getElementById("viewerImage").src = img.src;
+    document.getElementById("viewer").classList.add("active");
+  });
+});
+
+function closeViewer() {
+  document.getElementById("viewer").classList.remove("active");
+}
+
+document.getElementById("viewer").addEventListener("click", e => {
+  if (e.target.id === "viewer") closeViewer();
+});
+</script>
+
+</body>
+</html>
