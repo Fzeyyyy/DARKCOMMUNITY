@@ -289,17 +289,20 @@ footer strong {
   <div class="gallery">
 
     <!-- PHOTO 1 -->
-    <div class="photo-card">
-      <div class="photo-placeholder">
-        <div class="camera">📸</div>
-        <span>Event screenshot coming soon</span>
-      </div>
-      <div class="details">
-        <span class="category">Gaming Event</span>
-        <h3>Community Moments</h3>
-        <p>Memories captured during our gaming sessions.</p>
-      </div>
-    </div>
+    
+<!-- PHOTO 1 -->
+<div class="photo-card">
+  <img
+    src="https://res.cloudinary.com/z15nxdyh/image/upload/f_auto/q_auto/L_SS1.png"
+    alt="DARK Community Event"
+  >
+  <div class="details">
+    <span class="category">Lunatics</span>
+    <h3>Lunatic Moments</h3>
+    <p>Memories captured during our gaming sessions.</p>
+  </div>
+</div>
+
 
     <!-- PHOTO 2 -->
     <div class="photo-card">
@@ -349,12 +352,10 @@ footer strong {
 </div>
 
 <script>
-document.querySelectorAll(".photo-card img").forEach(img => {
-  img.addEventListener("click", () => {
-    document.getElementById("viewerImage").src = img.src;
-    document.getElementById("viewer").classList.add("active");
-  });
-});
+function openViewer(img) {
+  document.getElementById("viewerImage").src = img.src;
+  document.getElementById("viewer").classList.add("active");
+}
 
 function closeViewer() {
   document.getElementById("viewer").classList.remove("active");
@@ -364,6 +365,9 @@ document.getElementById("viewer").addEventListener("click", e => {
   if (e.target.id === "viewer") closeViewer();
 });
 </script>
+  });
+});
+
 
 </body>
 </html>
